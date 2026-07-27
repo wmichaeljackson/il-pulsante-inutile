@@ -15,5 +15,7 @@ body{margin:0;background:#222;color:#fff;font-family:Comic Sans MS,cursive;text-
 function start(){homePage.classList.remove('show');game.classList.add('show');back.style.display='block'}
 function goHome(){game.classList.remove('show');homePage.classList.add('show');back.style.display='none'}
 const b=document.getElementById('b'),c=document.getElementById('c'),badge=document.getElementById('badge');let n=0;const t=['Non premermi!','Ancora tu?','Basta!','Ci riprovi?','Non mi prenderai!','😂'];
+b.tabIndex=-1;b.blur();
+document.addEventListener("keydown",function(e){if((e.key==="Enter"||e.key===" ")&&document.activeElement===b){e.preventDefault();}});
 b.onclick=()=>{n++;c.textContent=n;b.textContent=t[Math.floor(Math.random()*t.length)];b.style.left=Math.random()*80+10+'%';b.style.top=Math.random()*70+15+'%';b.style.background='hsl('+Math.random()*360+',80%,60%)';b.style.fontSize=(18+Math.random()*18)+'px';b.style.padding=(14+Math.random()*14)+'px '+(22+Math.random()*20)+'px';if(n==10)badge.textContent='🏆 Testardo';if(n==50)badge.textContent='🏆 Professionista del nulla';if(n==100)badge.textContent='🏆 Ma hai davvero tutto questo tempo?';if(n==500){badge.textContent='👑 Leggenda del pulsante inutile';alert('🎉 Complimenti! Hai vinto... assolutamente niente!');}}
 </script></body></html>
